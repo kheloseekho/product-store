@@ -16,25 +16,26 @@ const app = express();
 //     };
 
 
-const allowedOrigins = [
-    'http://localhost:5173',               // ✅ Local Vite frontend
-    'https://product-store-0k0p.onrender.com/'        // ✅ Your production frontend
-];
+// const allowedOrigins = [
+//     'http://localhost:5173',               // ✅ Local Vite frontend
+//     'https://product-store-0k0p.onrender.com/'        // ✅ Your production frontend
+// ];
 
-const corsOptions = {
-    origin: function (origin, callback) {
-        // Allow requests with no origin (like mobile apps, curl, Postman)
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-};
+// const corsOptions = {
+//     origin: function (origin, callback) {
+//         console.log("Origin", origin)
+//         // Allow requests with no origin (like mobile apps, curl, Postman)
+//         if (!origin || allowedOrigins.includes(origin)) {
+//             callback(null, true);
+//         } else {
+//             callback(new Error('Not allowed by CORS'));
+//         }
+//     },
+//     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+//     credentials: true,
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 app.use(express.json());
 
