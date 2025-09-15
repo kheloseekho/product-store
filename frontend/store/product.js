@@ -8,7 +8,7 @@ export const useProductStore = create((set) => ({
             return { success: false, message: "Please fill in all fields" }
         }
 
-        const res = await fetch("http://localhost:500/product", {
+        const res = await fetch("/product", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -24,12 +24,12 @@ export const useProductStore = create((set) => ({
         return { success: true, message: "Product created Successfully" }
     },
     fetchProduct: async() => {
-        const res = await fetch("http://localhost:500/allproduct/");
+        const res = await fetch("/allproduct/");
         const data = await res.json();
         set({products: data.data})
     },
     deleteProduct: async (id) => {
-        const res = await fetch(`http://localhost:500/delete/${id}`, {
+        const res = await fetch(`/delete/${id}`, {
             method:"DELETE"
         })
         const data = await res.json();
@@ -45,7 +45,7 @@ export const useProductStore = create((set) => ({
         return {success: true, message: data.message}
     },
     updateProductStore: async(id, updatedProduct) => {
-        const res = await fetch(`http://localhost:500/edit/${id}`, {
+        const res = await fetch(`/edit/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
